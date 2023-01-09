@@ -2,6 +2,7 @@ import { Button, MenuButton, MenuList, MenuItem, Menu, Flex, Center } from "@cha
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import useEvents from "../hooks/useEvents";
 import { IconCalendarEvent } from '@tabler/icons'
+
 const EventSelector = () => {
   const eventsContext = useEvents();
   const handleOnChange = (indexOf: number) => {

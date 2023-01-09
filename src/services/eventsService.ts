@@ -2,12 +2,15 @@ import { collection, doc, getDoc, addDoc, getDocs } from "@firebase/firestore";
 import { db } from "./firebaseService";
 import dayjs from "dayjs";
 import { async } from "@firebase/util";
+import { MOCKED_EVENTS } from "../data-mockups/eventMockup";
 
 const eventsCollectionRef = collection(db, "events");
 
 export const getEvents = async () => {
-	const data = await getDocs(eventsCollectionRef);
-	return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+	// please uncomment this snippet when the service is working properly
+	// const data = await getDocs(eventsCollectionRef);
+	// return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+	return MOCKED_EVENTS
 };
 
 
