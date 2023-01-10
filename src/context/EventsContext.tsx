@@ -23,13 +23,14 @@ const EventsProvider = ({ children }: props) => {
     setCurrentEvent({ ...currentEvent, aquiredTickets: temp })
   }
   const fetchEvents = async () => {
-    // const fetchedEvents = await getEvents();
-    setEvents(MOCKED_EVENTS);
+    const fetchedEvents = await getEvents();
+    fetchedEvents && setEvents(fetchedEvents);
     setIsLoading(false);
   };
   const postNewEvents = async () => {
     await postEvents();
   }
+
   useMemo(() => {
     let templ = events.map((ev: any) => {
       if (ev.name === currentEvent.name) {

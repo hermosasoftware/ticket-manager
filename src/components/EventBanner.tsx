@@ -9,7 +9,7 @@ const EventBanner = () => {
   return (
     <Box minWidth='max-content' alignItems='center' gap='2'>
       <Heading size={titleTextSize} as='h2' marginTop={0} >{currentEvent?.name}</Heading>
-      {currentEvent ?
+      {Object.keys(currentEvent).length ?
         <Stack direction={['column', 'column', 'row', 'row']} marginTop={4}  >
           <Stack direction='row' spacing={2} marginBottom={6}>
             <Text as='sub' fontSize={subtitleTextSize} fontWeight={'bold'} wordBreak={'keep-all'}>
@@ -23,7 +23,7 @@ const EventBanner = () => {
                 {'Start Day:'} </Text>
               <Spacer />
               <Text as='sub' fontSize={nomralTextSize} color='gray.400' wordBreak={'keep-all'}>
-                {dayjs(currentEvent?.dates[0].toDate()).format('DD MMMM YYYY')}</Text>
+                {dayjs(currentEvent?.dates[0]).format('DD MMMM YYYY')}</Text>
             </Stack>
             <Spacer />
             <Stack width={'100%'} direction='row' spacing={2} flexWrap='nowrap'>
@@ -31,7 +31,7 @@ const EventBanner = () => {
                 {'End Day:'} </Text>
               <Spacer />
               <Text as='sub' fontSize={nomralTextSize} color='gray.400' wordBreak={'keep-all'} textAlign='right'>
-                {dayjs(currentEvent?.dates[currentEvent?.dates?.length - 1]?.toDate()).format('DD MMMM YYYY')}
+                {dayjs(currentEvent?.dates[currentEvent?.dates?.length - 1]).format('DD MMMM YYYY')}
               </Text>
             </Stack>
           </Stack>
